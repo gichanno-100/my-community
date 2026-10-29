@@ -7,6 +7,7 @@ import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 
 import AuthCard from '../components/auth/auth-card.jsx';
+import PasswordField from '../components/auth/password-field.jsx';
 import { useAuth } from '../hooks/use-auth.js';
 import { supabase } from '../lib/supabase.js';
 
@@ -81,9 +82,8 @@ function SignupPage() {
           helperText="1~30자"
         />
         <TextField label="이메일" type="email" autoComplete="email" required fullWidth value={ email } onChange={ (event) => setEmail(event.target.value) } />
-        <TextField
+        <PasswordField
           label="비밀번호"
-          type="password"
           autoComplete="new-password"
           required
           fullWidth
@@ -92,9 +92,8 @@ function SignupPage() {
           slotProps={ { htmlInput: { minLength: 6 } } }
           helperText="6자 이상"
         />
-        <TextField
+        <PasswordField
           label="비밀번호 확인"
-          type="password"
           autoComplete="new-password"
           required
           fullWidth

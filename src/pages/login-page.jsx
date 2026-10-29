@@ -7,6 +7,7 @@ import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 
 import AuthCard from '../components/auth/auth-card.jsx';
+import PasswordField from '../components/auth/password-field.jsx';
 import { useAuth } from '../hooks/use-auth.js';
 import { supabase } from '../lib/supabase.js';
 
@@ -50,7 +51,7 @@ function LoginPage() {
       <Box component="form" onSubmit={ handleSubmit } sx={ { display: 'flex', flexDirection: 'column', gap: 2 } }>
         { errorMessage && <Alert severity="error" sx={ { borderRadius: 3 } }>{ errorMessage }</Alert> }
         <TextField label="이메일" type="email" autoComplete="email" required fullWidth value={ email } onChange={ (event) => setEmail(event.target.value) } />
-        <TextField label="비밀번호" type="password" autoComplete="current-password" required fullWidth value={ password } onChange={ (event) => setPassword(event.target.value) } />
+        <PasswordField label="비밀번호" autoComplete="current-password" required fullWidth value={ password } onChange={ (event) => setPassword(event.target.value) } />
         <Button type="submit" variant="contained" size="large" disabled={ isSubmitting }>
           { isSubmitting ? '로그인 중...' : '로그인' }
         </Button>
